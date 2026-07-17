@@ -101,7 +101,7 @@ export const products: Product[] = [
     image: "/products/sh3.jpg",
     gallery: ["/products/sh3.jpg", "/products/sh31.jpg", "/products/sh32.jpg"],
     shortDescription:
-      "A handcrafted cane wall shelf that brings lightweight storage and organic texture to any room.",
+      "This cane wall shelf that brings lightweight storage and organic texture to any room.",
     description:
       "Designed with handcrafted woven details and a sturdy natural frame, this wall shelf makes a refined home for books, decor, and daily essentials.",
     features: ["Handcrafted", "Sturdy natural frame", "Woven cane detail"],
@@ -215,7 +215,7 @@ export const products: Product[] = [
       "/products/sob12.jfif",
     ],
     shortDescription:
-      "A petal-inspired cane accent chair that adds sculptural character to homes, cafés, and boutique interiors.",
+      "Petal-inspired cane accent chair that adds sculptural character to homes, cafes, and boutique interiors.",
     description:
       "Make a bold statement with this handcrafted bamboo flower accent chair. Featuring a stunning petal-inspired backrest and natural woven craftsmanship, it combines artistic design with everyday comfort, making it the perfect centerpiece for living rooms, cafés, studios, or boutique interiors.",
     features: [
