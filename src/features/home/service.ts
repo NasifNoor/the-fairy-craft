@@ -1,3 +1,4 @@
+import { Product, products } from "@/data/products";
 import {
   HomeCategory,
   HomeContactData,
@@ -19,6 +20,7 @@ import {
   homeFeaturedProducts,
   homeReasons,
   homeTestimonials,
+  homeNewArrivalProducts,
 } from "@/data/dummy/home";
 
 export function getHomeHero(): HomeHeroData {
@@ -29,8 +31,12 @@ export function getHomeCategories(): HomeCategory[] {
   return homeCategories;
 }
 
-export function getHomeFeaturedProducts(): HomeProduct[] {
-  return homeFeaturedProducts;
+export function getHomeFeaturedProducts(): Product[] {
+  return products.filter((item) => item.badge === "Featured");
+}
+
+export function getHomeNewProducts(): Product[] {
+  return products.filter((item) => item.badge === "New");
 }
 
 export function getHomeReasons(): HomeReason[] {

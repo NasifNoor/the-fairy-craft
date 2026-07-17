@@ -7,7 +7,7 @@ export const homeHero = [
       "The Crafted Nest designs warm, elegant nursery furnishings built from sustainably sourced materials and finished with care.",
     primaryCta: "Browse the Collection",
     secondaryCta: "Request a Consultation",
-    image: "/images/gallery-1.jpg",
+    image: "/images/hero-1.jpg",
     imageAlt: "Nursery furniture in a soft, modern room",
   },
   {
@@ -18,7 +18,7 @@ export const homeHero = [
       "Discover curated nursery essentials with gentle silhouettes, warm textures, and finishes made to last.",
     primaryCta: "Explore Our Range",
     secondaryCta: "Book a Consultation",
-    image: "/images/toy-house.jpg",
+    image: "/images/hero-2.jpg",
     imageAlt: "A serene nursery space with natural wood furniture",
   },
 ];
@@ -43,6 +43,29 @@ export const homeCategories = [
     name: "Accessories",
     description:
       "Soft textiles and thoughtfully crafted accents to complete the room.",
+  },
+];
+export const homeNewArrivalProducts = [
+  {
+    title: "Alder Convertible Crib",
+    price: "৳799",
+    image: "/products/ch1.jpg",
+    description:
+      "A timeless convertible crib with solid wood construction and gentle curves.",
+  },
+  {
+    title: "Harbor Glider",
+    price: "৳649",
+    image: "/images/toy-house.png",
+    description:
+      "A cushioned glider with smooth motion and premium upholstery for late nights.",
+  },
+  {
+    title: "Brooklyn Dresser",
+    price: "৳1,099",
+    image: "/images/toys.png",
+    description:
+      "A classic dresser with soft-close drawers and generous storage.",
   },
 ];
 
@@ -90,18 +113,16 @@ export const homeReasons = [
 
 export const homeGallery = [
   {
-    title: "Warm nursery details",
-    image: "/images/gallery-1.jpg",
+    title: "Relax in Natural Style",
+    image: "/images/gallery1.jfif",
   },
   {
-    title: "Elegant wood finish",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop",
+    title: "Cozy Living Corner",
+    image: "/images/gallery2.png",
   },
   {
-    title: "Comfortable corner",
-    image:
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1400&auto=format&fit=crop",
+    title: "Artisan Dining Space",
+    image: "/images/gallery3.webp",
   },
 ];
 

@@ -25,11 +25,20 @@ export function generateProductInquiryMessage(product: Product): string {
   return encodeURIComponent(message);
 }
 
-export function generateProductPriceInquiryMessage(product: Product): string {
+export function generateProductPriceInquiryMessage(
+  product: Product,
+  subPath: string = "",
+): string {
+  console.log("🚀 ~ generateProductPriceInquiryMessage ~ product:", product);
+  console.log("🚀 ~ generateProductPriceInquiryMessage ~ subPath:", subPath);
   const currentUrl =
     typeof window !== "undefined" && typeof window.location?.href === "string"
       ? window.location.href
       : "";
+  console.log(
+    "🚀 ~ generateProductPriceInquiryMessage ~ currentUrl:",
+    currentUrl,
+  );
 
   const message = [
     "Hello,",
@@ -39,7 +48,7 @@ export function generateProductPriceInquiryMessage(product: Product): string {
     `Product: ${product.name}`,
     "",
     "Link:",
-    currentUrl + "/" + product.slug,
+    currentUrl + "/" + subPath + product.slug,
     "",
     "Could you please share the latest price?",
     "",
@@ -53,6 +62,10 @@ export function buildProductInquiryWhatsAppLink(product: Product): string {
   return `https://wa.me/${site.contact.phone}?text=${generateProductInquiryMessage(product)}`;
 }
 
-export function buildProductPriceInquiryWhatsAppLink(product: Product): string {
-  return `https://wa.me/${site.contact.phone}?text=${generateProductPriceInquiryMessage(product)}`;
+export function buildProductPriceInquiryWhatsAppLink(
+  product: Product,
+  subPath: string = "",
+): string {
+  console.log("🚀 ~ buildProductPriceInquiryWhatsAppLink ~ subPath:", subPath);
+  return `https://wa.me/${site.contact.phone}?text=${generateProductPriceInquiryMessage(product, subPath)}`;
 }

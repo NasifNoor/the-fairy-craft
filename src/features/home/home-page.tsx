@@ -18,12 +18,15 @@ import {
   getHomeFeaturedProducts,
   getHomeReasons,
   getHomeTestimonials,
+  getHomeNewProducts,
 } from "./service";
+import { NewdProductsSection } from "./components/new-products-section";
 
 export function HomePage() {
   const hero = getHomeHero();
   const categories = getHomeCategories();
   const products = getHomeFeaturedProducts();
+  const newProducts = getHomeNewProducts();
   const reasons = getHomeReasons();
   const gallery = getHomeGallery();
   const testimonials = getHomeTestimonials();
@@ -33,6 +36,7 @@ export function HomePage() {
   return (
     <PageLayout>
       <HeroSection data={hero} />
+      <NewdProductsSection products={newProducts} />
       <CategoriesSection categories={categories} />
       <FeaturedProductsSection products={products} />
       <WhyChooseUsSection reasons={reasons} />

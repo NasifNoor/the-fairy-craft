@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { Container } from "./container";
 import { MobileNavigation } from "./mobile-navigation";
 import { site } from "../../data/site";
+import { LiaWhatsapp } from "react-icons/lia";
 
 const navItems = site.nav;
 
@@ -42,9 +43,10 @@ export function Navbar() {
           </Button> */}
           <Button
             size="sm"
-            className="bg-emerald-700 hover:bg-emerald-900"
+            className="gap-1 bg-emerald-700 hover:bg-emerald-900"
             link={`https://wa.me/${site.contact.phone}?text=${encodeURIComponent(site.contact.message)}`}
           >
+            <LiaWhatsapp size={22} />
             {site.contact.cta}
           </Button>
         </div>

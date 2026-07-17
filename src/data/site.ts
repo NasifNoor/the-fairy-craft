@@ -1,10 +1,14 @@
 export const site = {
-  businessName: "The Crafted Nest",
+  businessName: "The Fairy Craft",
   tagline: "Handcrafted Baby Furniture",
   logo: {
     // replaceable with a real asset in future
     src: "/images/logo-crafted-nest.svg",
     alt: "The Crafted Nest logo",
+  },
+  icons: {
+    icon: "/favicon.ico", // Points to your public folder or app folder path
+    apple: "/apple-icon.png",
   },
   contact: {
     phone: "+8801626858697",
@@ -57,6 +61,12 @@ export const site = {
   home: {
     categoriesEyebrow: "Signature categories",
     categoriesHeading: "Designed for every room in the nursery.",
+    newProducts: {
+      eyebrow: "New Collection",
+      heading: "Newly launched furniture designed for modern, mindful living.",
+      subtitle:
+        "Discover furniture built to mirror real nursery life and lasting design.",
+    },
     featuredProducts: {
       eyebrow: "Spotlight collection",
       heading: "Every piece crafted for comfort and clarity.",

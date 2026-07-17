@@ -12,7 +12,10 @@ export interface CategoriesSectionProps {
 
 export function CategoriesSection({ categories }: CategoriesSectionProps) {
   return (
-    <section id="collections" className="py-20 sm:py-24">
+    <section
+      id="collections"
+      className="py-20 sm:py-24 bg-[var(--color-surface)]"
+    >
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
