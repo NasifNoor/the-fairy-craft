@@ -12,7 +12,7 @@ export interface GallerySectionProps {
 
 export function GallerySection({ items }: GallerySectionProps) {
   return (
-    <section className="py-20 sm:py-24">
+    <section id="gallery" className="py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">

@@ -11,14 +11,14 @@ export interface WhyChooseUsSectionProps {
 
 export function WhyChooseUsSection({ reasons }: WhyChooseUsSectionProps) {
   return (
-    <section className="py-20 sm:py-24">
+    <section id="about" className="py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
             Why choose us
           </p>
           <Heading as="h2">
-            Thoughtful design, dependable craftsmanship, and calm finishes.
+            Made with care for spaces that deserve to feel timeless.
           </Heading>
         </div>
 

@@ -9,6 +9,7 @@ import { GallerySection } from "./components/gallery-section";
 import { HeroSection } from "./components/hero-section";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { WhyChooseUsSection } from "./components/why-choose-us-section";
+import { CustomFurnitureSection } from "./components/custom-furniture-section";
 import {
   getHomeCategories,
   getHomeContact,
@@ -19,6 +20,7 @@ import {
   getHomeReasons,
   getHomeTestimonials,
   getHomeNewProducts,
+  getHomeCustomFurniture,
 } from "./service";
 import { NewdProductsSection } from "./components/new-products-section";
 
@@ -28,6 +30,7 @@ export function HomePage() {
   const products = getHomeFeaturedProducts();
   const newProducts = getHomeNewProducts();
   const reasons = getHomeReasons();
+  const customFurniture = getHomeCustomFurniture();
   const gallery = getHomeGallery();
   const testimonials = getHomeTestimonials();
   const faqItems = getHomeFaq();
@@ -40,6 +43,7 @@ export function HomePage() {
       <CategoriesSection categories={categories} />
       <FeaturedProductsSection products={products} />
       <WhyChooseUsSection reasons={reasons} />
+      <CustomFurnitureSection data={customFurniture} />
       <GallerySection items={gallery} />
       <TestimonialsSection testimonials={testimonials} />
       <FAQSection items={faqItems} />

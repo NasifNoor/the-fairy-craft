@@ -26,6 +26,9 @@ export function NewdProductsSection({ products }: NewProductsSectionProps) {
               {site.home.newProducts.eyebrow}
             </p>
             <Heading as="h2">{site.home.newProducts.heading}</Heading>
+            <p className="text-base leading-7 text-[var(--color-text-muted)]">
+              {site.home.newProducts.subtitle}
+            </p>
           </div>
           <a
             href="/products"

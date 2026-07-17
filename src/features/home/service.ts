@@ -3,6 +3,7 @@ import {
   HomeCategory,
   HomeContactData,
   HomeCtaData,
+  HomeCustomFurnitureData,
   HomeFaqItem,
   HomeGalleryItem,
   HomeHeroData,
@@ -14,6 +15,7 @@ import {
 import {
   homeCategories,
   homeContact,
+  homeCustomFurniture,
   homeFaq,
   homeGallery,
   homeHero,
@@ -41,6 +43,10 @@ export function getHomeNewProducts(): Product[] {
 
 export function getHomeReasons(): HomeReason[] {
   return homeReasons;
+}
+
+export function getHomeCustomFurniture(): HomeCustomFurnitureData {
+  return homeCustomFurniture;
 }
 
 export function getHomeGallery(): HomeGalleryItem[] {

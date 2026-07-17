@@ -1,22 +1,15 @@
 export const site = {
   businessName: "The Fairy Craft",
-  tagline: "Handcrafted Baby Furniture",
-  logo: {
-    // replaceable with a real asset in future
-    src: "/images/logo-crafted-nest.svg",
-    alt: "The Crafted Nest logo",
-  },
-  icons: {
-    icon: "/favicon.ico", // Points to your public folder or app folder path
-    apple: "/apple-icon.png",
-  },
+  tagline: "Handcrafted Cane Furniture",
+  logo: { src: "/images/logo-crafted-nest.svg", alt: "The Fairy Craft logo" },
+  icons: { icon: "/favicon.ico", apple: "/apple-icon.png" },
   contact: {
     phone: "+8801626858697",
     whatsapp: "+8801626858697",
     email: "nasif.workstation@gmail.com",
     cta: "Whatsapp Us",
     message:
-      "Hello, I would like to inquire about your products and services. Please provide me with more information.",
+      "Hello, I would like to request a quote for handcrafted cane furniture.",
     openingHours: "Sunday to Thursday • 10:00 AM – 8:00 PM",
     openingHoursDetails: {
       showroom: {
@@ -45,38 +38,40 @@ export const site = {
     zip: "1216",
   },
   description:
-    "Crafted with Love for Your Little One. The Crafted Nest creates warm, elegant nursery furnishings using sustainably sourced materials and thoughtful details that stand the test of time.",
-  ctaText: "Shop the Collection",
+    "The Fairy Craft creates premium handcrafted cane furniture for homes, cafés, resorts, and commercial spaces—made with enduring materials, skilled hands, and thoughtful detail.",
+  ctaText: "Explore the Collection",
   productsIntro:
-    "Discover furniture made for calm, comfortable nurseries — curated for growing families with timeless style and thoughtful details.",
-  searchPlaceholder: "Search cribs, gliders, dressers...",
-  faqHeading: "Common questions about our products and care.",
+    "Discover ready-made cane furniture and distinctive handcrafted pieces for considered, welcoming spaces.",
+  searchPlaceholder: "Search sofas, lounge chairs, shelves...",
+  faqHeading:
+    "Everything you need to know about custom and ready-made cane furniture.",
   nav: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/#about" },
     { label: "Collections", href: "/#collections" },
-    { label: "Products", href: "/products" },
+    { label: "Custom Design", href: "/#custom-design" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "About", href: "/#about" },
     { label: "Contact", href: "/#contact" },
   ],
   home: {
-    categoriesEyebrow: "Signature categories",
-    categoriesHeading: "Designed for every room in the nursery.",
+    categoriesEyebrow: "Our collections",
+    categoriesHeading: "Handcrafted cane furniture for every considered space.",
     newProducts: {
       eyebrow: "New Collection",
-      heading: "Newly launched furniture designed for modern, mindful living.",
+      heading: "Newly launched pieces for naturally refined living.",
       subtitle:
-        "Discover furniture built to mirror real nursery life and lasting design.",
+        "Discover our latest handcrafted cane furniture designed for modern, timeless living.",
     },
     featuredProducts: {
       eyebrow: "Spotlight collection",
-      heading: "Every piece crafted for comfort and clarity.",
+      heading: "Timeless cane pieces, made to be lived with.",
       subtitle:
-        "Discover furniture built to mirror real nursery life and lasting design.",
+        "Explore distinctive designs that bring warmth, texture, and artisanal character to every room.",
     },
-    galleryEyebrow: "gallery",
+    galleryEyebrow: "Crafted Spaces",
     galleryHeading:
-      "Crafted Spaces for Growing Families — A Peek Inside Our Design Philosophy.",
-    testimonialsHeading: "What families say about their nursery experience.",
+      "See how our handcrafted cane furniture transforms homes, cafés, restaurants, resorts, offices, and outdoor living spaces.",
+    testimonialsHeading: "What our customers say about our craftsmanship.",
   },
 };
 

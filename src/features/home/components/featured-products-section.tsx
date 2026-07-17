@@ -27,6 +27,9 @@ export function FeaturedProductsSection({
               {site.home.featuredProducts.eyebrow}
             </p>
             <Heading as="h2">{site.home.featuredProducts.heading}</Heading>
+            <p className="text-base leading-7 text-[var(--color-text-muted)]">
+              {site.home.featuredProducts.subtitle}
+            </p>
           </div>
           <a
             href="/products"
@@ -58,7 +61,7 @@ export function FeaturedProductsSection({
                   />
                 </motion.div>
                 <div className="space-y-2">
-                  <Badge variant="accent">New Arrival</Badge>
+                  <Badge variant="accent">Spotlight Piece</Badge>
                   <h3 className="text-xl font-semibold text-[var(--color-text)]">
                     {product.name}
                   </h3>

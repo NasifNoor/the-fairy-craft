@@ -52,8 +52,18 @@ export interface HomeCtaData {
   buttonLabel: string;
 }
 
+export interface HomeCustomFurnitureData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  steps: Array<{ title: string; description: string }>;
+  ctaLabel: string;
+}
+
 export interface HomeContactData {
   title: string;
   description: string;
   email: string;
+  customDesign: { title: string; description: string; items: string[] };
 }

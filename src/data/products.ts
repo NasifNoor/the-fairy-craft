@@ -41,21 +41,20 @@ export const products: Product[] = [
     image: "/products/ch1.jpg",
     gallery: ["/products/ch1.jpg", "/products/ch11.jpg", "/products/ch12.jfif"],
     shortDescription:
-      "Elegant solid bamboo convertible crib designed to grow with your child.",
+      "A sculptural handcrafted cane lounge chair with a woven backrest and inviting natural warmth.",
     description:
       "A beautifully handcrafted bamboo accent chair featuring a woven lattice backrest and curved frame. Designed to offer comfort, durability, and timeless natural elegance for living rooms, patios, or cozy reading corners.",
     features: [
-      "3 mattress height positions",
-      "Toddler conversion kit included",
-      "Non-toxic child-safe finish",
+      "Handwoven cane backrest",
+      "Comfortable curved profile",
+      "Hand-finished natural frame",
     ],
     specifications: [
-      { label: "Weight Capacity", value: "50 lbs" },
-      { label: "Assembly", value: "Required" },
-      { label: "Material", value: "Solid Oak Wood" },
+      { label: "Material", value: "Cane and bamboo" },
+      { label: "Finish", value: "Natural hand finish" },
     ],
     dimensions: '54" W × 30" D × 40" H',
-    materials: "Solid Oak, Eco-friendly Paint, Steel Hardware",
+    materials: "Natural cane and bamboo",
     reviews: [],
   },
 
@@ -76,16 +75,16 @@ export const products: Product[] = [
     description:
       "A beautifully handcrafted round bamboo tea table featuring a woven tabletop and an open storage shelf. Perfect as a coffee table or center table, it brings natural warmth, timeless craftsmanship, and practical elegance to any living space.",
     features: [
-      "Adjustable mattress base",
-      "Rounded safety edges",
-      "Premium Beech Wood",
+      "Handwoven tabletop",
+      "Open lower shelf",
+      "Natural bamboo frame",
     ],
     specifications: [
-      { label: "Material", value: "Beech Wood" },
+      { label: "Material", value: "Cane and bamboo" },
       { label: "Finish", value: "Natural" },
     ],
     dimensions: '53" W × 29" D × 39" H',
-    materials: "Solid Beech Wood",
+    materials: "Natural cane and bamboo",
     reviews: [],
   },
 
@@ -102,16 +101,16 @@ export const products: Product[] = [
     image: "/products/sh3.jpg",
     gallery: ["/products/sh3.jpg", "/products/sh31.jpg", "/products/sh32.jpg"],
     shortDescription:
-      "Classic handcrafted cot with timeless elegance & exceptional comfort.",
+      "A handcrafted cane wall shelf that brings lightweight storage and organic texture to any room.",
     description:
-      "Designed for durability with handcrafted details and premium hardwood construction.",
-    features: ["Handcrafted", "Heavy-duty frame", "Smooth rounded corners"],
+      "Designed with handcrafted woven details and a sturdy natural frame, this wall shelf makes a refined home for books, decor, and daily essentials.",
+    features: ["Handcrafted", "Sturdy natural frame", "Woven cane detail"],
     specifications: [
-      { label: "Material", value: "Mahogany" },
-      { label: "Assembly", value: "Required" },
+      { label: "Material", value: "Cane and bamboo" },
+      { label: "Installation", value: "Wall mounting required" },
     ],
     dimensions: '55" W × 31" D × 41" H',
-    materials: "Mahogany Wood",
+    materials: "Natural cane and bamboo",
     reviews: [],
   },
 
@@ -161,7 +160,11 @@ export const products: Product[] = [
       "Luxury handcrafted rocking chair with premium cushioning.",
     description:
       "Unwind in style with this handcrafted bamboo rocking chair, featuring a woven backrest and gently curved rockers. Designed for exceptional comfort and timeless natural elegance, it's perfect for patios, balconies, living rooms, or cozy reading corners.",
-    features: ["Washable bedding", "Strong rope support", "Natural finish"],
+    features: [
+      "Gentle rocking motion",
+      "Strong curved frame",
+      "Natural hand finish",
+    ],
     specifications: [],
     dimensions: '38" × 22"',
     materials: "Bamboo, Cotton",
@@ -212,10 +215,14 @@ export const products: Product[] = [
       "/products/sob12.jfif",
     ],
     shortDescription:
-      "Child-friendly front-facing beautifully crafted bamboo flower accent chair.",
+      "A petal-inspired cane accent chair that adds sculptural character to homes, cafés, and boutique interiors.",
     description:
       "Make a bold statement with this handcrafted bamboo flower accent chair. Featuring a stunning petal-inspired backrest and natural woven craftsmanship, it combines artistic design with everyday comfort, making it the perfect centerpiece for living rooms, cafés, studios, or boutique interiors.",
-    features: ["Rounded edges", "Open shelves", "Solid wood construction"],
+    features: [
+      "Petal-inspired backrest",
+      "Handwoven cane detail",
+      "Solid bamboo construction",
+    ],
     specifications: [],
     dimensions: '30" W × 12" D × 36" H',
     materials: "Solid Bamboo",

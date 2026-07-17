@@ -1,129 +1,125 @@
 export const homeHero = [
   {
     id: "hero-1",
-    eyebrow: "Handcrafted Baby Furniture",
-    title: "Heirloom pieces, thoughtfully made.",
+    eyebrow: "Handcrafted Cane Furniture",
+    title: "Handcrafted Cane Furniture for Timeless Living",
     description:
-      "The Crafted Nest designs warm, elegant nursery furnishings built from sustainably sourced materials and finished with care.",
-    primaryCta: "Browse the Collection",
-    secondaryCta: "Request a Consultation",
+      "Discover handcrafted cane furniture designed for homes, cafés, resorts, and commercial spaces. From ready-made collections to fully custom designs, we bring your ideas to life.",
+    primaryCta: "Explore Collection",
+    secondaryCta: "Request Custom Design",
     image: "/images/hero-1.jpg",
-    imageAlt: "Nursery furniture in a soft, modern room",
+    imageAlt: "Handcrafted cane furniture in a warm, modern living space",
   },
   {
     id: "hero-2",
-    eyebrow: "Designed for modern families",
-    title: "Crafted comfort that grows with your child.",
+    eyebrow: "Made for your space",
+    title: "Your inspiration, made by skilled hands.",
     description:
-      "Discover curated nursery essentials with gentle silhouettes, warm textures, and finishes made to last.",
-    primaryCta: "Explore Our Range",
-    secondaryCta: "Book a Consultation",
+      "Share a photo, Pinterest image, sketch, or reference and let our craftsmen create a cane furniture piece tailored to your space.",
+    primaryCta: "Explore Collection",
+    secondaryCta: "Request Custom Design",
     image: "/images/hero-2.jpg",
-    imageAlt: "A serene nursery space with natural wood furniture",
+    imageAlt: "A handcrafted cane chair in a naturally styled interior",
   },
 ];
 
 export const homeCategories = [
   {
-    name: "Nursery Furniture",
+    name: "Living Room",
     description:
-      "Cribs and dressers with timeless silhouettes and durable joinery.",
+      "Sofa sets, lounge chairs, rocking chairs, and coffee tables with natural character.",
   },
   {
-    name: "Seating",
+    name: "Dining",
     description:
-      "Comfortable gliders and ottomans for quiet moments and feedings.",
+      "Handcrafted dining sets that make everyday gatherings feel considered.",
   },
   {
-    name: "Storage",
+    name: "Bedroom",
     description:
-      "Practical storage solutions that keep essentials organized and accessible.",
+      "Decorative chairs, display shelves, and warm accents for restful spaces.",
   },
   {
-    name: "Accessories",
+    name: "Outdoor",
     description:
-      "Soft textiles and thoughtfully crafted accents to complete the room.",
-  },
-];
-export const homeNewArrivalProducts = [
-  {
-    title: "Alder Convertible Crib",
-    price: "৳799",
-    image: "/products/ch1.jpg",
-    description:
-      "A timeless convertible crib with solid wood construction and gentle curves.",
+      "Durable cane seating and tables for balconies, patios, and resort settings.",
   },
   {
-    title: "Harbor Glider",
-    price: "৳649",
-    image: "/images/toy-house.png",
+    name: "Home Decor",
     description:
-      "A cushioned glider with smooth motion and premium upholstery for late nights.",
+      "Plant stands, wall shelves, and woven accessories that layer in texture.",
   },
   {
-    title: "Brooklyn Dresser",
-    price: "৳1,099",
-    image: "/images/toys.png",
+    name: "Custom Furniture",
     description:
-      "A classic dresser with soft-close drawers and generous storage.",
+      "Bespoke cane pieces built from your inspiration, dimensions, and finish preferences.",
   },
 ];
 
-export const homeFeaturedProducts = [
-  {
-    title: "Alder Convertible Crib",
-    price: "৳799",
-    image: "/images/gallery-1.jpg",
-    description:
-      "A timeless convertible crib with solid wood construction and gentle curves.",
-  },
-  {
-    title: "Harbor Glider",
-    price: "৳649",
-    image: "/images/toy-house.png",
-    description:
-      "A cushioned glider with smooth motion and premium upholstery for late nights.",
-  },
-  {
-    title: "Brooklyn Dresser",
-    price: "৳1,099",
-    image: "/images/toys.png",
-    description:
-      "A classic dresser with soft-close drawers and generous storage.",
-  },
-];
+export const homeNewArrivalProducts = [];
+export const homeFeaturedProducts = [];
 
 export const homeReasons = [
   {
-    title: "Sustainably sourced",
+    title: "Handcrafted by Skilled Artisans",
     description:
-      "We use responsibly sourced hardwoods and low-VOC finishes for healthier homes.",
+      "Every piece is shaped, woven, and finished by experienced craftsmen.",
   },
   {
-    title: "Built to last",
+    title: "Sustainably Sourced Cane",
     description:
-      "Durable construction and replaceable parts extend the life of each piece.",
+      "We select natural cane responsibly for beauty, strength, and longevity.",
   },
   {
-    title: "Family-first design",
+    title: "Custom Furniture Available",
     description:
-      "Practical features that make daily routines easier for parents and caregivers.",
+      "Bring us your photo, Pinterest link, sketch, or idea for a made-to-order piece.",
+  },
+  {
+    title: "Durable Construction",
+    description:
+      "Thoughtful joinery and dependable materials support everyday living.",
+  },
+  {
+    title: "Premium Finishing",
+    description:
+      "Each surface and woven detail is carefully refined for a polished result.",
+  },
+  {
+    title: "Nationwide Delivery",
+    description:
+      "Your finished furniture is prepared with care for delivery across Bangladesh.",
   },
 ];
 
+export const homeCustomFurniture = {
+  eyebrow: "Custom Furniture",
+  title: "Bring Your Design to Life",
+  subtitle: "A piece made specifically for your space.",
+  description:
+    "Have a photo, Pinterest inspiration, or a rough sketch? Share it with us and our skilled craftsmen will build a custom cane furniture piece made specifically for your space.",
+  steps: [
+    {
+      title: "Send Your Design",
+      description: "Upload or share a reference image.",
+    },
+    {
+      title: "Consultation",
+      description: "We discuss size, material, finish and pricing.",
+    },
+    {
+      title: "Handcrafted Production",
+      description: "Our artisans build your furniture.",
+    },
+    { title: "Delivery", description: "Receive your custom-made furniture." },
+  ],
+  ctaLabel: "Request a Custom Quote",
+};
+
 export const homeGallery = [
-  {
-    title: "Relax in Natural Style",
-    image: "/images/gallery1.jfif",
-  },
-  {
-    title: "Cozy Living Corner",
-    image: "/images/gallery2.png",
-  },
-  {
-    title: "Artisan Dining Space",
-    image: "/images/gallery3.webp",
-  },
+  { title: "Natural Living Room", image: "/images/gallery1.jfif" },
+  { title: "Relaxed Cafe Corner", image: "/images/gallery2.png" },
+  { title: "Artisan Dining Space", image: "/images/gallery3.webp" },
 ];
 
 export const homeTestimonials = [
@@ -133,7 +129,7 @@ export const homeTestimonials = [
     location: "Dhaka",
     rating: 5,
     review:
-      "The quality exceeded our expectations. The wooden baby cot is sturdy, beautifully finished, and our little one sleeps comfortably every night.",
+      "The cane sofa set is beautifully made, sturdy, and even more refined in person. The craftsmanship shows in every woven detail.",
   },
   {
     id: "2",
@@ -141,7 +137,7 @@ export const homeTestimonials = [
     location: "Chattogram",
     rating: 5,
     review:
-      "We ordered a rocking dolna and were impressed by the craftsmanship. It feels premium, safe, and was delivered exactly as promised.",
+      "We sent a reference image for a custom lounge chair. The team understood our idea and delivered a piece that fits our space perfectly.",
   },
   {
     id: "3",
@@ -149,7 +145,7 @@ export const homeTestimonials = [
     location: "Rajshahi",
     rating: 5,
     review:
-      "The customer service was excellent. They helped us choose the perfect cot for our nursery, and the final product looked even better than the photos.",
+      "Excellent finish, clear communication, and furniture that feels built to last. Our dining set has transformed the room.",
   },
   {
     id: "4",
@@ -157,31 +153,47 @@ export const homeTestimonials = [
     location: "Sylhet",
     rating: 5,
     review:
-      "Beautiful design, smooth finish, and outstanding build quality. We highly recommend The Crafted Nest to every new parent.",
+      "From consultation to delivery, the service was thoughtful. Our custom cane shelf arrived exactly as agreed.",
   },
 ];
 
 export const homeFaq = [
   {
-    question: "Do your cribs convert to toddler beds?",
+    question: "Can I order custom furniture?",
     answer:
-      "Yes — many of our cribs include a conversion kit and multiple mattress heights so they grow with your child.",
+      "Yes. We create made-to-order cane furniture based on your design, dimensions, material preferences, and finish.",
   },
   {
-    question: "Are finishes safe for babies?",
+    question: "Can I send a Pinterest image?",
     answer:
-      "All finishes are low-VOC and third-party tested for safe indoor air quality, and hardware meets safety standards.",
+      "Absolutely. Send a Pinterest link, photo, sketch, or inspiration image and our team will review what is possible.",
   },
   {
-    question: "Do you offer assembly or delivery?",
+    question: "How long does production take?",
     answer:
-      "We ship nationwide and offer optional white-glove assembly in select areas for a seamless setup.",
+      "Timelines vary by design and order size. We provide a clear production estimate after confirming the details of your piece.",
+  },
+  {
+    question: "Do you deliver nationwide?",
+    answer:
+      "Yes. We arrange careful delivery for ready-made and custom furniture across Bangladesh.",
+  },
+  {
+    question: "How do I maintain cane furniture?",
+    answer:
+      "Dust regularly with a soft brush or dry cloth, keep it away from prolonged moisture, and avoid direct harsh sunlight when possible.",
   },
 ];
 
 export const homeContact = {
-  title: "We're Here to Help",
+  title: "Let’s Create Something Timeless",
   description:
-    "Have questions about our products or need help choosing the perfect baby cot or dolna? Our team is always ready to assist you.",
-  email: "hello@thecraftednest.com",
+    "Explore our ready-made collections or speak with our team about a custom cane furniture piece for your home or business.",
+  email: "hello@thefairycraft.com",
+  customDesign: {
+    title: "Have Your Own Design?",
+    description:
+      "Send us the details below and we’ll provide a quotation and production timeline.",
+    items: ["Reference Image", "Pinterest Link", "Sketch", "Measurements"],
+  },
 };

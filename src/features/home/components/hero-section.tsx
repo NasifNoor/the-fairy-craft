@@ -141,7 +141,7 @@ function HeroContent({ data }: { data: HomeHeroItem }) {
         <Link href="/products">
           <Button size="lg">{data.primaryCta}</Button>
         </Link>
-        <Link href="/#contact">
+        <Link href="/#custom-design">
           <Button variant="secondary" size="lg">
             {data.secondaryCta}
           </Button>
