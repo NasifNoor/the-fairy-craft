@@ -4,6 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 import { Button } from "../../../components/ui/button";
 import { Container } from "../../../components/ui/container";
@@ -207,6 +208,7 @@ function HeroImage({
 }
 
 export function HeroSection({ data }: HeroSectionProps) {
+  const t = useTranslations();
   if (data.length === 0) {
     return null;
   }
@@ -247,7 +249,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           <div className="pointer-events-auto absolute left-4 top-1/2 flex -translate-y-1/2 items-center">
             <button
               type="button"
-              aria-label="Previous hero slide"
+              aria-label={t("common.previous")}
               onClick={prev}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]"
             >
@@ -258,7 +260,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           <div className="pointer-events-auto absolute right-4 top-1/2 flex -translate-y-1/2 items-center">
             <button
               type="button"
-              aria-label="Next hero slide"
+              aria-label={t("common.next")}
               onClick={next}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]"
             >
@@ -271,7 +273,7 @@ export function HeroSection({ data }: HeroSectionProps) {
               <button
                 key={`hero-dot-${index}`}
                 type="button"
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={t("common.goToSlide", { number: index + 1 })}
                 aria-current={activeIndex === index ? "true" : undefined}
                 onClick={() => goTo(index)}
                 className={

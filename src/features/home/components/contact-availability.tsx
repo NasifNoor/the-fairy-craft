@@ -1,8 +1,12 @@
+"use client";
+
 import { LuMessageCircleMore } from "react-icons/lu";
 import { LuClock } from "react-icons/lu";
 import { site } from "@/data/site";
+import { useTranslations } from "next-intl";
 
 export function ContactAvailability() {
+  const t = useTranslations();
   const showroom = site.contact.openingHoursDetails?.showroom;
   const onlineSupport = site.contact.openingHoursDetails?.onlineSupport;
 
@@ -16,13 +20,13 @@ export function ContactAvailability() {
             </div>
             <div className="space-y-1">
               <p className="text-sm font-semibold text-[var(--color-text)]">
-                {showroom.title}
+                {t("contact.showroom")}
               </p>
               <p className="text-sm text-[var(--color-text-muted)]">
-                {showroom.days}
+                {t("contact.openEveryDay")}
               </p>
               <p className="text-sm text-[var(--color-text-muted)]">
-                {showroom.hours}
+                {t("contact.hours")}
               </p>
             </div>
           </div>
@@ -37,10 +41,10 @@ export function ContactAvailability() {
             </div>
             <div className="space-y-1">
               <p className="text-sm font-semibold text-[var(--color-text)]">
-                {onlineSupport.title}
+                {t("contact.helpAnytime")}
               </p>
               <p className="text-sm leading-6 text-[var(--color-text-muted)]">
-                {onlineSupport.description}
+                {t("contact.support")}
               </p>
             </div>
           </div>

@@ -50,6 +50,7 @@ export const site = {
     { label: "Collections", href: "/#collections" },
     { label: "Custom Design", href: "/#custom-design" },
     { label: "Gallery", href: "/#gallery" },
+    { label: "Products", href: "/products" },
     { label: "About", href: "/#about" },
     { label: "Contact", href: "/#contact" },
   ],

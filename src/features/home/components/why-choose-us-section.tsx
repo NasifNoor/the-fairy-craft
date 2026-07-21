@@ -1,24 +1,28 @@
+"use client";
+
 import * as React from "react";
 
 import { Card } from "../../../components/ui/card";
 import { Container } from "../../../components/ui/container";
 import { Heading } from "../../../components/ui/heading";
 import { HomeReason } from "../types";
+import { useTranslations } from "next-intl";
 
 export interface WhyChooseUsSectionProps {
   reasons: HomeReason[];
 }
 
 export function WhyChooseUsSection({ reasons }: WhyChooseUsSectionProps) {
+  const t = useTranslations();
   return (
     <section id="about" className="py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-            Why choose us
+            {t("common.whyChooseUs")}
           </p>
           <Heading as="h2">
-            Made with care for spaces that deserve to feel timeless.
+            {t("home.whyHeading")}
           </Heading>
         </div>
 
