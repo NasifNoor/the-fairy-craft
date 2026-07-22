@@ -8,10 +8,27 @@ import { Container } from "./container";
 import { MobileNavigation } from "./mobile-navigation";
 import { site } from "../../data/site";
 import { LiaWhatsapp } from "react-icons/lia";
-
-const navItems = site.nav;
+import { useTranslations } from "next-intl";
+import { LanguageSwitch } from "./language-switch";
 
 export function Navbar() {
+  const t = useTranslations();
+  const navItems = [
+    "home",
+    "collections",
+    "customDesign",
+    "gallery",
+    "products",
+    "about",
+    "contact",
+  ].map((key) => ({
+    label: t(`nav.${key}`),
+    href:
+      site.nav.find(
+        (item) =>
+          item.label.toLowerCase().replace(" ", "") === key.toLowerCase(),
+      )?.href ?? "/",
+  }));
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
@@ -47,8 +64,9 @@ export function Navbar() {
             link={`https://wa.me/${site.contact.phone}?text=${encodeURIComponent(site.contact.message)}`}
           >
             <LiaWhatsapp size={22} />
-            {site.contact.cta}
+            {t("nav.whatsapp")}
           </Button>
+          <LanguageSwitch />
         </div>
 
         <div className="md:hidden">

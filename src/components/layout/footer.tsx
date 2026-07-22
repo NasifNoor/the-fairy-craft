@@ -1,9 +1,13 @@
+"use client";
+
 import * as React from "react";
+import { useTranslations } from "next-intl";
 
 import { Container } from "./container";
 import { site } from "../../data/site";
 
 export function Footer() {
+  const t = useTranslations();
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface)]">
       <Container className="flex flex-col gap-10 py-12 lg:flex-row lg:justify-between">
@@ -12,13 +16,13 @@ export function Footer() {
             {site.businessName}
           </p>
           <p className="text-sm leading-7 text-[var(--color-text-muted)]">
-            {site.description}
+            {t("footer.description")}
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text)]">
-              Contact
+              {t("footer.contact")}
             </h2>
             <ul className="space-y-2 text-sm text-[var(--color-text-muted)]">
               <li>{site.contact.phone}</li>
@@ -28,7 +32,7 @@ export function Footer() {
 
           <div>
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text)]">
-              Location
+              {t("footer.location")}
             </h2>
             <p className="text-sm text-[var(--color-text-muted)]">
               {site.address.line1}, {site.address.city}, {site.address.region}{" "}
@@ -38,7 +42,7 @@ export function Footer() {
 
           <div>
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text)]">
-              Follow
+              {t("footer.follow")}
             </h2>
             <ul className="space-y-2 text-sm text-[var(--color-text-muted)]">
               {site.social.map((s) => (

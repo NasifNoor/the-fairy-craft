@@ -1,12 +1,15 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
+import { LanguageSwitch } from "./language-switch";
 
 export interface MobileNavigationProps {
   items: Array<{ label: string; href: string }>;
 }
 
 export function MobileNavigation({ items }: MobileNavigationProps) {
+  const t = useTranslations();
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -26,7 +29,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         type="button"
         aria-expanded={open}
         aria-controls="mobile-navigation-panel"
-        aria-label="Toggle navigation menu"
+        aria-label={t("nav.collections")}
         onClick={() => setOpen((value) => !value)}
         className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] p-2 text-[var(--color-text)]"
       >
@@ -61,6 +64,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                 {item.label}
               </a>
             ))}
+            <LanguageSwitch />
           </nav>
         </div>
       ) : null}

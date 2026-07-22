@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 
 import { Card } from "../../../components/ui/card";
@@ -5,20 +7,22 @@ import { Container } from "../../../components/ui/container";
 import { Heading } from "../../../components/ui/heading";
 import { HomeFaqItem } from "../types";
 import { site } from "@/data/site";
+import { useTranslations } from "next-intl";
 
 export interface FaqSectionProps {
   items: HomeFaqItem[];
 }
 
 export function FAQSection({ items }: FaqSectionProps) {
+  const t = useTranslations();
   return (
     <section className="py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-            FAQ
+            {t("common.faq")}
           </p>
-          <Heading as="h2">{site.faqHeading}</Heading>
+          <Heading as="h2">{t("home.faqHeading")}</Heading>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">

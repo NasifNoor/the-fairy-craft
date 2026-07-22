@@ -1,4 +1,7 @@
+"use client";
+
 import * as React from "react";
+import { useTranslations } from "next-intl";
 
 import { PageLayout } from "../../components/layout/page-layout";
 import { CategoriesSection } from "./components/categories-section";
@@ -10,31 +13,25 @@ import { HeroSection } from "./components/hero-section";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { WhyChooseUsSection } from "./components/why-choose-us-section";
 import { CustomFurnitureSection } from "./components/custom-furniture-section";
-import {
-  getHomeCategories,
-  getHomeContact,
-  getHomeFaq,
-  getHomeGallery,
-  getHomeHero,
-  getHomeFeaturedProducts,
-  getHomeReasons,
-  getHomeTestimonials,
-  getHomeNewProducts,
-  getHomeCustomFurniture,
-} from "./service";
+import { getHomeFeaturedProducts, getHomeNewProducts } from "./service";
+import type { HomeCategory, HomeContactData, HomeCustomFurnitureData, HomeFaqItem, HomeGalleryItem, HomeHeroData, HomeReason, HomeTestimonial } from "./types";
 import { NewdProductsSection } from "./components/new-products-section";
 
 export function HomePage() {
-  const hero = getHomeHero();
-  const categories = getHomeCategories();
+  const t = useTranslations();
+  const hero = t.raw("home.hero") as HomeHeroData;
+  const categories = t.raw("home.categories") as HomeCategory[];
   const products = getHomeFeaturedProducts();
   const newProducts = getHomeNewProducts();
-  const reasons = getHomeReasons();
-  const customFurniture = getHomeCustomFurniture();
-  const gallery = getHomeGallery();
-  const testimonials = getHomeTestimonials();
-  const faqItems = getHomeFaq();
-  const contact = getHomeContact();
+  const reasons = t.raw("home.reasons") as HomeReason[];
+  const customFurniture = t.raw("home.custom") as HomeCustomFurnitureData;
+  const gallery = t.raw("home.gallery") as HomeGalleryItem[];
+  const testimonials = t.raw("home.testimonials") as HomeTestimonial[];
+  const faqItems = t.raw("home.faq") as HomeFaqItem[];
+  const contact: HomeContactData = {
+    title: t("contact.title"), description: t("contact.description"), email: "hello@thefairycraft.com",
+    customDesign: { title: t("contact.ownDesign"), description: t("contact.ownDesignDescription"), items: [t("contact.referenceImage"), t("contact.pinterestLink"), t("contact.sketch"), t("contact.measurements")] },
+  };
 
   return (
     <PageLayout>

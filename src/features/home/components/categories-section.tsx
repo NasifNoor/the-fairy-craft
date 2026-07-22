@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 
 import { Card } from "../../../components/ui/card";
@@ -5,12 +7,14 @@ import { Container } from "../../../components/ui/container";
 import { Heading } from "../../../components/ui/heading";
 import { HomeCategory } from "../types";
 import { site } from "@/data/site";
+import { useTranslations } from "next-intl";
 
 export interface CategoriesSectionProps {
   categories: HomeCategory[];
 }
 
 export function CategoriesSection({ categories }: CategoriesSectionProps) {
+  const t = useTranslations();
   return (
     <section
       id="collections"
@@ -19,9 +23,9 @@ export function CategoriesSection({ categories }: CategoriesSectionProps) {
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-            {site.home.categoriesEyebrow}
+            {t("home.categoriesEyebrow")}
           </p>
-          <Heading as="h2">{site.home.categoriesHeading}</Heading>
+          <Heading as="h2">{t("home.categoriesHeading")}</Heading>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">

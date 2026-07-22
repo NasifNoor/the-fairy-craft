@@ -117,7 +117,7 @@ export const homeCustomFurniture = {
 };
 
 export const homeGallery = [
-  { title: "Natural Living Room", image: "/images/gallery1.jfif" },
+  { title: "Natural Living Room", image: "/images/gallery1.jpg" },
   { title: "Relaxed Cafe Corner", image: "/images/gallery2.png" },
   { title: "Artisan Dining Space", image: "/images/gallery3.webp" },
 ];

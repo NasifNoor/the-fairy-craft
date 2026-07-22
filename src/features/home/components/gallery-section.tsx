@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
 
@@ -5,20 +7,22 @@ import { Container } from "../../../components/ui/container";
 import { Heading } from "../../../components/ui/heading";
 import { HomeGalleryItem } from "../types";
 import { site } from "@/data/site";
+import { useTranslations } from "next-intl";
 
 export interface GallerySectionProps {
   items: HomeGalleryItem[];
 }
 
 export function GallerySection({ items }: GallerySectionProps) {
+  const t = useTranslations();
   return (
     <section id="gallery" className="py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-            {site.home.galleryEyebrow}
+            {t("home.galleryEyebrow")}
           </p>
-          <Heading as="h2">{site.home.galleryHeading}</Heading>
+          <Heading as="h2">{t("home.galleryHeading")}</Heading>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">

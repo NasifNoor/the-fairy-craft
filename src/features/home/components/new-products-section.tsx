@@ -8,38 +8,43 @@ import { Container } from "../../../components/ui/container";
 import { Heading } from "../../../components/ui/heading";
 import Image from "next/image";
 import { site } from "@/data/site";
-import { Product } from "@/data/products";
+import { localizeProduct, Product } from "@/data/products";
 import { buildProductPriceInquiryWhatsAppLink } from "@/lib/utils/product-inquiry";
 import { LiaWhatsapp } from "react-icons/lia";
+import { useLocale, useTranslations } from "next-intl";
 
 export interface NewProductsSectionProps {
   products: Product[];
 }
 
 export function NewdProductsSection({ products }: NewProductsSectionProps) {
+  const t = useTranslations();
+  const locale = useLocale() as "en" | "bn";
   return (
     <section className="border-y border-[var(--color-border)] py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-              {site.home.newProducts.eyebrow}
+              {t("home.newProducts.eyebrow")}
             </p>
-            <Heading as="h2">{site.home.newProducts.heading}</Heading>
+            <Heading as="h2">{t("home.newProducts.heading")}</Heading>
             <p className="text-base leading-7 text-[var(--color-text-muted)]">
-              {site.home.newProducts.subtitle}
+              {t("home.newProducts.subtitle")}
             </p>
           </div>
           <a
             href="/products"
             className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
           >
-            View All
+            {t("common.viewAll")}
           </a>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {products.map((product) => (
+          {products.map((product) => {
+            product = localizeProduct(product, locale);
+            return (
             <motion.div
               key={product.name}
               whileHover={{ scale: 1.02 }}
@@ -60,7 +65,7 @@ export function NewdProductsSection({ products }: NewProductsSectionProps) {
                   />
                 </motion.div>
                 <div className="space-y-2">
-                  <Badge variant="accent">New Arrival</Badge>
+                  <Badge variant="accent">{t("common.newArrival")}</Badge>
                   <h3 className="text-xl font-semibold text-[var(--color-text)]">
                     {product.name}
                   </h3>
@@ -86,18 +91,19 @@ export function NewdProductsSection({ products }: NewProductsSectionProps) {
                     }}
                   >
                     <LiaWhatsapp size={22} />
-                    <span>Ask for price</span>
+                    <span>{t("common.askPrice")}</span>
                   </span>
                   <a
                     href={`/products/${product.slug}`}
                     className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
                   >
-                    View Details
+                    {t("common.viewDetails")}
                   </a>
                 </div>
               </Card>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </Container>
     </section>

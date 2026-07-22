@@ -9,7 +9,8 @@ import { Heading } from "../../../components/ui/heading";
 import { HomeProduct } from "../types";
 import Image from "next/image";
 import { site } from "@/data/site";
-import { Product } from "@/data/products";
+import { localizeProduct, Product } from "@/data/products";
+import { useLocale, useTranslations } from "next-intl";
 
 export interface FeaturedProductsSectionProps {
   products: Product[];
@@ -18,29 +19,33 @@ export interface FeaturedProductsSectionProps {
 export function FeaturedProductsSection({
   products,
 }: FeaturedProductsSectionProps) {
+  const t = useTranslations();
+  const locale = useLocale() as "en" | "bn";
   return (
     <section className="border-y border-[var(--color-border)] bg-[var(--color-surface)] py-20 sm:py-24">
       <Container className="space-y-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-              {site.home.featuredProducts.eyebrow}
+              {t("home.featuredProducts.eyebrow")}
             </p>
-            <Heading as="h2">{site.home.featuredProducts.heading}</Heading>
+            <Heading as="h2">{t("home.featuredProducts.heading")}</Heading>
             <p className="text-base leading-7 text-[var(--color-text-muted)]">
-              {site.home.featuredProducts.subtitle}
+              {t("home.featuredProducts.subtitle")}
             </p>
           </div>
           <a
             href="/products"
             className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
           >
-            View collection
+            {t("common.viewCollection")}
           </a>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {products.map((product) => (
+          {products.map((product) => {
+            product = localizeProduct(product, locale);
+            return (
             <motion.div
               key={product.name}
               whileHover={{ scale: 1.02 }}
@@ -61,7 +66,7 @@ export function FeaturedProductsSection({
                   />
                 </motion.div>
                 <div className="space-y-2">
-                  <Badge variant="accent">Spotlight Piece</Badge>
+                  <Badge variant="accent">{t("common.spotlightPiece")}</Badge>
                   <h3 className="text-xl font-semibold text-[var(--color-text)]">
                     {product.name}
                   </h3>
@@ -77,12 +82,13 @@ export function FeaturedProductsSection({
                     href={`/products/${product.slug}`}
                     className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
                   >
-                    View Details
+                    {t("common.viewDetails")}
                   </a>
                 </div>
               </Card>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </Container>
     </section>
