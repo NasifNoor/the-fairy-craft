@@ -23,7 +23,6 @@ export function ProductReviews({ reviews, product }: ProductReviewsProps) {
   const productData = localizeProduct(product, locale);
 
   const reviewDesc = (productName: string) => {
-    console.log("🚀 ~ reviewDesc ~ productName:", productName);
     if (locale === "en") {
       return `What customers say about ${productName}`;
     } else return `ক্রেতারা ${productName} সম্পর্কে কি বলে দেখুন`;

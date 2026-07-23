@@ -21,6 +21,11 @@ export function FeaturedProductsSection({
 }: FeaturedProductsSectionProps) {
   const t = useTranslations();
   const locale = useLocale() as "en" | "bn";
+  const formatPrice = (value: number) =>
+    `৳ ${new Intl.NumberFormat(locale === "en" ? "en-US" : "bn-BD", {
+      maximumFractionDigits: 0,
+    }).format(value)}`;
+
   return (
     <section className="border-y border-[var(--color-border)] bg-[var(--color-surface)] py-20 sm:py-24">
       <Container className="space-y-8">
@@ -46,48 +51,48 @@ export function FeaturedProductsSection({
           {products.map((product) => {
             product = localizeProduct(product, locale);
             return (
-            <motion.div
-              key={product.name}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Card padding="lg" className="space-y-4">
-                <motion.div
-                  whileHover={{ scale: 1.06 }}
-                  className="relative aspect-[4/3] rounded-xl bg-[var(--color-surface-muted)] overflow-hidden"
-                >
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    style={{ objectFit: "cover" }}
-                    priority={false}
-                  />
-                </motion.div>
-                <div className="space-y-2">
-                  <Badge variant="accent">{t("common.spotlightPiece")}</Badge>
-                  <h3 className="text-xl font-semibold text-[var(--color-text)]">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm leading-7 text-[var(--color-text-muted)]">
-                    {product.shortDescription}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-lg font-semibold text-[var(--color-primary-700)]">
-                    ৳{product.price}
-                  </span>
-                  <a
-                    href={`/products/${product.slug}`}
-                    className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
+              <motion.div
+                key={product.name}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Card padding="lg" className="space-y-4">
+                  <motion.div
+                    whileHover={{ scale: 1.06 }}
+                    className="relative aspect-[4/3] rounded-xl bg-[var(--color-surface-muted)] overflow-hidden"
                   >
-                    {t("common.viewDetails")}
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-          );
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      style={{ objectFit: "cover" }}
+                      priority={false}
+                    />
+                  </motion.div>
+                  <div className="space-y-2">
+                    <Badge variant="accent">{t("common.spotlightPiece")}</Badge>
+                    <h3 className="text-xl font-semibold text-[var(--color-text)]">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm leading-7 text-[var(--color-text-muted)]">
+                      {product.shortDescription}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="text-lg font-semibold text-[var(--color-primary-700)]">
+                      {formatPrice(product.price)}
+                    </span>
+                    <a
+                      href={`/products/${product.slug}`}
+                      className="text-sm font-medium text-[var(--color-primary-700)] hover:underline"
+                    >
+                      {t("common.viewDetails")}
+                    </a>
+                  </div>
+                </Card>
+              </motion.div>
+            );
           })}
         </div>
       </Container>
