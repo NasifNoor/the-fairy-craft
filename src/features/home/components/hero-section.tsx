@@ -246,7 +246,7 @@ export function HeroSection({ data }: HeroSectionProps) {
 
       {hasCarousel && (
         <div className="pointer-events-none absolute inset-0">
-          <div className="pointer-events-auto absolute left-4 top-1/2 flex -translate-y-1/2 items-center">
+          <div className="pointer-events-auto absolute left-4 bottom-0 2xl:top-1/2 flex -translate-y-1/2 items-center">
             <button
               type="button"
               aria-label={t("common.previous")}
@@ -257,7 +257,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             </button>
           </div>
 
-          <div className="pointer-events-auto absolute right-4 top-1/2 flex -translate-y-1/2 items-center">
+          <div className="pointer-events-auto absolute right-4 bottom-0 2xl:top-1/2 flex -translate-y-1/2 items-center">
             <button
               type="button"
               aria-label={t("common.next")}
