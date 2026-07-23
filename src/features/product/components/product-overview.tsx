@@ -1,42 +1,50 @@
 import { Card } from "@/components/ui/card";
 import { ProductSpecifications } from "./product-specifications";
-import type { Product } from "@/data/products";
+import { localizeProduct, type Product } from "@/data/products";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ProductOverviewProps {
   product: Product;
 }
 
 export function ProductOverview({ product }: ProductOverviewProps) {
+  const t = useTranslations();
+  const locale = useLocale() as "en" | "bn";
   const detailItems = [
     { label: "Dimensions", value: product.dimensions },
     { label: "Materials", value: product.materials },
     {
       label: "Care instructions",
-      value: product.careInstructions ?? "Care instructions will be shared upon request.",
+      value:
+        product.careInstructions ??
+        "Care instructions will be shared upon request.",
     },
     {
       label: "Shipping information",
-      value: product.shippingInfo ?? "Shipping details will be shared upon request.",
+      value:
+        product.shippingInfo ?? "Shipping details will be shared upon request.",
     },
     {
       label: "Warranty information",
-      value: product.warrantyInfo ?? "Warranty details will be shared upon request.",
+      value:
+        product.warrantyInfo ?? "Warranty details will be shared upon request.",
     },
   ];
+  const productData = localizeProduct(product, locale);
 
   return (
     <div className="space-y-6">
       <Card className="space-y-4 p-6 sm:p-8">
         <div className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-            Overview
+            {t("common.overview")}
           </p>
           <h2 className="text-xl font-semibold text-[var(--color-text)]">
-            Product details at a glance
+            {t("common.productDetails")}
           </h2>
         </div>
         <p className="text-sm leading-7 text-[var(--color-text-muted)]">
-          {product.description}
+          {productData.description}
         </p>
       </Card>
 
@@ -44,14 +52,14 @@ export function ProductOverview({ product }: ProductOverviewProps) {
         <Card className="space-y-5 p-6 sm:p-8">
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-[var(--color-text)]">
-              Features
+              {t("common.features")}
             </h3>
             <p className="text-sm text-[var(--color-text-muted)]">
-              Built for comfort, practicality, and lasting nursery use.
+              {productData.shortDescription}
             </p>
           </div>
           <ul className="space-y-3 text-sm leading-7 text-[var(--color-text-muted)]">
-            {product.features.map((feature) => (
+            {productData.features.map((feature) => (
               <li key={feature} className="flex gap-2">
                 <span className="mt-0.5 h-2.5 w-2.5 rounded-full bg-[var(--color-primary-600)]" />
                 <span>{feature}</span>
@@ -63,7 +71,7 @@ export function ProductOverview({ product }: ProductOverviewProps) {
         <ProductSpecifications specifications={product.specifications} />
       </div>
 
-      <Card className="p-6 sm:p-8">
+      {/* <Card className="p-6 sm:p-8">
         <div className="grid gap-6 md:grid-cols-2">
           {detailItems.map((item) => (
             <div key={item.label} className="space-y-2">
@@ -76,7 +84,7 @@ export function ProductOverview({ product }: ProductOverviewProps) {
             </div>
           ))}
         </div>
-      </Card>
+      </Card> */}
     </div>
   );
 }

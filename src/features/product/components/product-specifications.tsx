@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import type { Product } from "@/data/products";
+import { useTranslations } from "next-intl";
 
 interface ProductSpecificationsProps {
   specifications: Product["specifications"];
@@ -8,14 +9,15 @@ interface ProductSpecificationsProps {
 export function ProductSpecifications({
   specifications,
 }: ProductSpecificationsProps) {
+  const t = useTranslations();
   return (
     <Card className="space-y-5 p-6 sm:p-8">
       <div className="space-y-2">
         <h3 className="text-lg font-semibold text-[var(--color-text)]">
-          Specifications
+          {t("common.specifications")}
         </h3>
         <p className="text-sm text-[var(--color-text-muted)]">
-          Technical details and sizing information.
+          {t("common.specificationsDescription")}
         </p>
       </div>
 

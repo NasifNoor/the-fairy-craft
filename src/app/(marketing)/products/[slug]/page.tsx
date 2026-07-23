@@ -22,14 +22,13 @@ interface ProductPageProps {
 }
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
-  // `params` can sometimes be a Promise in the App Router; await to ensure we have the resolved object.
+  // // `params` can sometimes be a Promise in the App Router; await to ensure we have the resolved object.
   const resolved = await params;
   const slug = resolved?.slug ?? resolved?.value ?? resolved?.params;
 
   if (!slug) {
     notFound();
   }
-
   const product = getProductBySlug(slug);
 
   if (!product) {
@@ -41,13 +40,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   return (
     <PageLayout>
       <Container className="space-y-10 py-20">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Products", href: "/products" },
-            { label: product.name },
-          ]}
-        />
+        <Breadcrumb product={product} />
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-8">
             <ProductGallery images={product.gallery} name={product.name} />

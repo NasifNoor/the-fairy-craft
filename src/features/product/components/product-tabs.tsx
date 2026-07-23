@@ -4,12 +4,13 @@ import * as React from "react";
 import type { Product } from "@/data/products";
 import { ProductOverview } from "./product-overview";
 import { ProductReviews } from "./product-reviews";
+import { useLocale } from "next-intl";
 
 type TabKey = "overview" | "reviews";
 
-const tabs: { id: TabKey; label: string }[] = [
-  { id: "overview", label: "Overview" },
-  { id: "reviews", label: "Reviews" },
+const tabs: { id: TabKey; label: { en: string; bn: string } }[] = [
+  { id: "overview", label: { en: "Overview", bn: "ওভারভিউ" } },
+  { id: "reviews", label: { en: "Reviews", bn: "রিভিউ" } },
 ];
 
 interface ProductTabsProps {
@@ -17,6 +18,8 @@ interface ProductTabsProps {
 }
 
 export function ProductTabs({ product }: ProductTabsProps) {
+  const locale = useLocale() as "en" | "bn";
+
   const [activeTab, setActiveTab] = React.useState<TabKey>("overview");
 
   return (
@@ -44,7 +47,7 @@ export function ProductTabs({ product }: ProductTabsProps) {
                   : "text-[var(--color-text-muted)] hover:bg-[var(--color-primary-50)] hover:text-[var(--color-text)]"
               }`}
             >
-              {tab.label}
+              {tab.label[locale]}
             </button>
           );
         })}
@@ -68,10 +71,7 @@ export function ProductTabs({ product }: ProductTabsProps) {
         hidden={activeTab !== "reviews"}
       >
         {activeTab === "reviews" ? (
-          <ProductReviews
-            reviews={product.reviews}
-            productName={product.name}
-          />
+          <ProductReviews reviews={product.reviews} product={product} />
         ) : null}
       </div>
     </section>

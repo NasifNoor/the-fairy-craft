@@ -4,7 +4,14 @@ export interface Product {
   name: string;
   category: string;
   categoryLabel: string;
-  badge?: "New" | "Sale" | "Featured";
+  badge?:
+    | string
+    | "New"
+    | "Sale"
+    | "Featured"
+    | "ছাড়"
+    | "বিশেষ পছন্দ"
+    | "নতুন";
   price: number;
   salePrice?: number;
   availability: string;
@@ -29,11 +36,15 @@ export interface Product {
 
 export type ProductLocale = "en" | "bn";
 export type LocalizedProductText = { en: string; bn: string };
+export type LocalizedProductArray = { en: string[]; bn: string[] };
 
 export const productTranslations: Record<
   string,
   {
     name: LocalizedProductText;
+    availability: LocalizedProductText;
+    features: LocalizedProductArray;
+    badge: LocalizedProductText;
     shortDescription: LocalizedProductText;
     description: LocalizedProductText;
     categoryLabel: LocalizedProductText;
@@ -42,9 +53,23 @@ export const productTranslations: Record<
   "heritage-lounge-chair": {
     name: { en: "Heritage Lounge Chair", bn: "হেরিটেজ লাউঞ্জ চেয়ার" },
     categoryLabel: { en: "Premium Chair", bn: "প্রিমিয়াম চেয়ার" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "New", bn: "নতুন" },
     shortDescription: {
       en: "A sculptural handcrafted cane lounge chair with a woven backrest and inviting natural warmth.",
       bn: "বোনা ব্যাকরেস্ট ও প্রাকৃতিক উষ্ণতায় ভরা ভাস্কর্যময় হাতে তৈরি বেতের লাউঞ্জ চেয়ার।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
     },
     description: {
       en: "A beautifully handcrafted bamboo accent chair featuring a woven lattice backrest and curved frame. Designed to offer comfort, durability, and timeless natural elegance for living rooms, patios, or cozy reading corners.",
@@ -54,9 +79,23 @@ export const productTranslations: Record<
   "natural-center-table": {
     name: { en: "Natural Center Table", bn: "ন্যাচারাল সেন্টার টেবিল" },
     categoryLabel: { en: "Table", bn: "টেবিল" },
+    badge: { en: "New", bn: "নতুন" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
     shortDescription: {
       en: "Minimal Scandinavian round tea table crafted from premium bamboo.",
       bn: "প্রিমিয়াম বাঁশে তৈরি মিনিমাল স্ক্যান্ডিনেভিয়ান গোল টি টেবিল।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
     },
     description: {
       en: "A beautifully handcrafted round bamboo tea table featuring a woven tabletop and an open storage shelf. Perfect as a coffee table or center table, it brings natural warmth, timeless craftsmanship, and practical elegance to any living space.",
@@ -65,10 +104,24 @@ export const productTranslations: Record<
   },
   "wall-mounted-nest": {
     name: { en: "Wall Mounted Nest", bn: "ওয়াল মাউন্টেড নেস্ট" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "Featured", bn: "বিশেষ পছন্দ" },
     categoryLabel: { en: "Wall Shelf", bn: "ওয়াল শেলফ" },
     shortDescription: {
       en: "This cane wall shelf brings lightweight storage and organic texture to any room.",
       bn: "এই বেতের ওয়াল শেলফ যেকোনো ঘরে হালকা স্টোরেজ ও প্রাকৃতিক টেক্সচার যোগ করে।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
     },
     description: {
       en: "Designed with handcrafted woven details and a sturdy natural frame, this wall shelf makes a refined home for books, decor, and daily essentials.",
@@ -78,9 +131,23 @@ export const productTranslations: Record<
   "classic-rocking-chair": {
     name: { en: "Classic Rocking Chair", bn: "ক্লাসিক রকিং চেয়ার" },
     categoryLabel: { en: "Chair", bn: "চেয়ার" },
+    badge: { en: "Featured", bn: "বিশেষ পছন্দ" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
     shortDescription: {
       en: "Luxury handcrafted rocking chair with premium cushioning.",
       bn: "প্রিমিয়াম কুশনসহ বিলাসবহুল বেতের তৈরি রকিং চেয়ার।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
     },
     description: {
       en: "Unwind in style with this handcrafted bamboo rocking chair, featuring a woven backrest and gently curved rockers.",
@@ -92,10 +159,24 @@ export const productTranslations: Record<
       en: "Natural Two-Tier Flower Stand",
       bn: "ন্যাচারাল টু-টিয়ার ফ্লাওয়ার স্ট্যান্ড",
     },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "New", bn: "নতুন" },
     categoryLabel: { en: "Plant Stand", bn: "প্ল্যান্ট স্ট্যান্ড" },
     shortDescription: {
       en: "Modern indoor plant stand inspired by Scandinavian design.",
       bn: "স্ক্যান্ডিনেভিয়ান নকশায় অনুপ্রাণিত আধুনিক ইনডোর প্ল্যান্ট স্ট্যান্ড।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
     },
     description: {
       en: "Showcase your favorite indoor plants with this handcrafted two-tier bamboo plant stand.",
@@ -105,13 +186,105 @@ export const productTranslations: Record<
   "floral-lounge-chair": {
     name: { en: "Floral Lounge Chair", bn: "ফ্লোরাল লাউঞ্জ চেয়ার" },
     categoryLabel: { en: "Chair", bn: "চেয়ার" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "Featured", bn: "বিশেষ পছন্দ" },
     shortDescription: {
       en: "Petal-inspired cane accent chair that adds sculptural character to homes, cafés, and boutique interiors.",
       bn: "পাপড়ি-অনুপ্রাণিত বেতের চেয়ার, যা বাড়ি, ক্যাফে ও বুটিক ইন্টেরিয়রে ভাস্কর্যময় সৌন্দর্য যোগ করে।",
     },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
+    },
     description: {
       en: "Make a bold statement with this handcrafted bamboo flower accent chair.",
       bn: "এই হাতে তৈরি বেতের ফুলের অ্যাকসেন্ট চেয়ারে আনুন অনন্য সৌন্দর্যের প্রকাশ।",
+    },
+  },
+  "wall-mounted-shelf-mini": {
+    name: { en: "Wall Mounted Shelf Mini", bn: "ওয়াল মাউন্টেড শেলফ মিনি" },
+    categoryLabel: { en: "Wall Shelf", bn: "ওয়াল শেলফ" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "Sale", bn: "ছাড়" },
+    shortDescription: {
+      en: "Compact handcrafted cane wall shelf that combines elegant display space with practical everyday storage.",
+      bn: "হাতে তৈরি কমপ্যাক্ট বেতের ওয়াল শেলফ, যা নান্দনিক প্রদর্শন ও দৈনন্দিন সংরক্ষণের জন্য উপযুক্ত।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
+    },
+    description: {
+      en: "Designed with handcrafted woven cane and a sturdy bamboo frame, this compact wall-mounted shelf offers a stylish way to organize and display your favorite décor, plants, books, or everyday essentials. Its space-saving design and natural finish make it a perfect addition to modern, minimalist, and nature-inspired interiors.",
+      bn: "হাতে তৈরি বোনা বেত ও মজবুত বাঁশের ফ্রেমে নির্মিত এই কমপ্যাক্ট ওয়াল-মাউন্টেড শেলফটি আপনার প্রিয় সাজসজ্জার সামগ্রী, গাছপালা, বই বা দৈনন্দিন প্রয়োজনীয় জিনিস সুন্দরভাবে প্রদর্শন ও সংরক্ষণের জন্য আদর্শ। এর স্থান-সাশ্রয়ী নকশা এবং প্রাকৃতিক ফিনিশ আধুনিক, মিনিমাল ও প্রাকৃতিক সৌন্দর্যপূর্ণ ইন্টেরিয়রের সঙ্গে দারুণভাবে মানিয়ে যায়।",
+    },
+  },
+  "premium-living-room-set": {
+    name: { en: "Premium Living Room Set", bn: "প্রিমিয়াম লিভিং রুম সেট" },
+    categoryLabel: { en: "Sofa", bn: "সোফা" },
+    badge: { en: "Sale", bn: "ছাড়" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    shortDescription: {
+      en: "Handcrafted bamboo sofa set with playful cloud silhouette.",
+      bn: "খেলাচ্ছলে মেঘের অবয়ব খচিত হস্তনির্মিত বাঁশের সোফা সেট।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
+    },
+    description: {
+      en: "Elevate your living space with this handcrafted bamboo sofa set, featuring a sturdy natural bamboo frame and beautifully woven details. Designed for lasting comfort and timeless style, it's perfect for living rooms, patios, cafes, and resort spaces.",
+      bn: "মজবুত প্রাকৃতিক বেতের ফ্রেম এবং সুন্দর বুননের কারুকার্য খচিত এই হস্তনির্মিত বেতের সোফা সেট দিয়ে আপনার থাকার জায়গাটিকে আরও আকর্ষণীয় করে তুলুন। দীর্ঘস্থায়ী আরাম এবং চিরন্তন শৈলীর জন্য ডিজাইন করা এই সেটটি লিভিং রুম, বারান্দা, ক্যাফে এবং রিসোর্টের মতো জায়গার জন্য উপযুক্ত।",
+    },
+  },
+  "natural-utility-basket": {
+    name: { en: "Natural Utility Basket", bn: "নেচারাল ইউটিলিটি বাস্কেট" },
+    categoryLabel: { en: "Basket", bn: "ঝুড়ি" },
+    availability: { en: "In stock", bn: "স্টকে আছে" },
+    badge: { en: "Sale", bn: "ছাড়" },
+    shortDescription: {
+      en: "Elegant handcrafted woven bamboo plant basket with timeless craftsmanship for modern living.",
+      bn: "আধুনিক জীবনযাপনের জন্য কালজয়ী কারুকার্যে তৈরি চমৎকার হস্তনির্মিত বেতের ঝুড়ি।",
+    },
+    features: {
+      en: [
+        "Handwoven cane backrest",
+        "Comfortable curved profile",
+        "Hand-finished natural frame",
+      ],
+      bn: [
+        "হাতে বোনা বেতের ব্যাকরেস্ট",
+        "আরামদায়ক বাঁকানো নকশা",
+        "হাতে করা প্রাকৃতিক ফিনিশ",
+      ],
+    },
+    description: {
+      en: "Add a touch of natural charm to your home with this handcrafted woven bamboo plant basket. Perfect for displaying indoor plants, organizing everyday essentials, or enhancing your décor with timeless artisanal craftsmanship.",
+      bn: "হাতে বোনা এই বেতের ঝুড়ি দিয়ে আপনার বাড়িতে প্রাকৃতিক সৌন্দর্যের ছোঁয়া আনুন। ঘরের ভেতরের গাছ সাজিয়ে রাখতে, দৈনন্দিন প্রয়োজনীয় জিনিসপত্র গুছিয়ে রাখতে, অথবা চিরন্তন কারুশিল্পের ছোঁয়ায় আপনার সজ্জাকে আরও আকর্ষণীয় করে তুলতে এটি আদর্শ।",
     },
   },
 };
@@ -125,6 +298,9 @@ export function localizeProduct(
     ? {
         ...product,
         name: translation.name[locale],
+        availability: translation.availability[locale],
+        badge: translation.badge[locale],
+        features: translation?.features[locale],
         shortDescription: translation.shortDescription[locale],
         description: translation.description[locale],
         categoryLabel: translation.categoryLabel[locale],
@@ -140,8 +316,7 @@ export const products: Product[] = [
     category: "premium-chair",
     categoryLabel: "Premium Chair",
     badge: "New",
-    price: 799,
-    salePrice: 699,
+    price: 2800,
     availability: "In stock",
     image: "/products/ch1.jpg",
     gallery: ["/products/ch1.jpg", "/products/ch11.jpg", "/products/ch12.jpg"],
@@ -170,8 +345,7 @@ export const products: Product[] = [
     category: "table",
     categoryLabel: "Table",
     badge: "New",
-    price: 749,
-    salePrice: 669,
+    price: 2000,
     availability: "In stock",
     image: "/products/tt1.jpg",
     gallery: ["/products/tt1.jpg", "/products/tt11.png", "/products/tt12.jpg"],
@@ -197,11 +371,10 @@ export const products: Product[] = [
     id: "3",
     slug: "wall-mounted-nest",
     name: "Wall Mounted Nest",
-    category: "baby-cot",
-    categoryLabel: "Baby Cot",
+    category: "shelf",
+    categoryLabel: "Shelf",
     badge: "Featured",
-    price: 899,
-    salePrice: 799,
+    price: 1300,
     availability: "In stock",
     image: "/products/sh3.jpg",
     gallery: ["/products/sh3.jpg", "/products/sh31.jpg", "/products/sh32.jpg"],
@@ -226,14 +399,15 @@ export const products: Product[] = [
     category: "shelf",
     categoryLabel: "Shelf",
     badge: "Sale",
-    price: 329,
-    salePrice: 289,
+    price: 1000,
+    salePrice: 850,
     availability: "In stock",
     image: "/products/sh1.jpg",
     gallery: ["/products/sh1.jpg", "/products/sh11.jpg", "/products/sh12.jpg"],
-    shortDescription: "Traditional metal made rocking dolna with gentle swing.",
+    shortDescription:
+      "Compact handcrafted cane wall shelf that combines elegant display space with practical everyday storage.",
     description:
-      "Crafted for comfort and soothing sleep with secure hanging hardware.",
+      "Designed with handcrafted woven cane and a sturdy bamboo frame, this compact wall-mounted shelf offers a stylish way to organize and display your favorite décor, plants, books, or everyday essentials. Its space-saving design and natural finish make it a perfect addition to modern, minimalist, and nature-inspired interiors.",
     features: [
       "Gentle rocking motion",
       "Soft mattress included",
@@ -252,8 +426,7 @@ export const products: Product[] = [
     category: "Chair",
     categoryLabel: "Chair",
     badge: "Featured",
-    price: 379,
-    salePrice: 339,
+    price: 5000,
     availability: "In stock",
     image: "/products/rocking1.jpg",
     gallery: [
@@ -283,8 +456,7 @@ export const products: Product[] = [
     category: "flower-stand",
     categoryLabel: "Flower Stand",
     badge: "New",
-    price: 349,
-    salePrice: 319,
+    price: 1000,
     availability: "In stock",
     image: "/products/r1.jpg",
     gallery: ["/products/r1.jpg", "/products/r11.jpg", "/products/r12.jpg"],
@@ -310,8 +482,7 @@ export const products: Product[] = [
     category: "chair",
     categoryLabel: "Chair",
     badge: "Featured",
-    price: 269,
-    salePrice: 239,
+    price: 2500,
     availability: "In stock",
     image: "/products/sob1.jpg",
     gallery: [
@@ -341,8 +512,8 @@ export const products: Product[] = [
     category: "sofa",
     categoryLabel: "Sofa",
     badge: "Sale",
-    price: 299,
-    salePrice: 269,
+    price: 15000,
+    salePrice: 12500,
     availability: "In stock",
     image: "/products/so1.jpg",
     gallery: ["/products/so1.jpg", "/products/so11.jpg", "/products/so12.jpg"],
@@ -364,8 +535,8 @@ export const products: Product[] = [
     category: "basket",
     categoryLabel: "Basket",
     badge: "Sale",
-    price: 699,
-    salePrice: 639,
+    price: 500,
+    salePrice: 250,
     availability: "In stock",
     image: "/products/b1.jpg",
     gallery: ["/products/b1.jpg", "/products/b11.jpg", "/products/b12.jpg"],
