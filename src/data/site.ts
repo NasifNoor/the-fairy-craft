@@ -22,7 +22,10 @@ export const site = {
         description: "We're available 24/7 on WhatsApp.",
       },
     },
-    facebook: "https://facebook.com/thecraftednest",
+    facebook: {
+      name: "The Crafted Nest",
+      href: "https://facebook.com/thecrafted",
+    },
     googleMapsUrl:
       "https://maps.google.com/?q=Begum+Rokeya+Sarani+Mirpur+Dhaka",
   },

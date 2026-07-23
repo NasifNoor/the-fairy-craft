@@ -22,7 +22,7 @@ export function ContactCard() {
 
   return (
     <Card padding="lg" className="space-y-4">
-      <div className="space-y-4 rounded-3xl bg-[var(--color-surface)] p-6 sm:p-8">
+      <div className="space-y-4 rounded-3xl bg-[var(--color-surface)] sm:p-8">
         <div className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
             {t("common.directContact")}
@@ -61,8 +61,8 @@ export function ContactCard() {
           <ContactItem
             icon={<LiaFacebook size={22} />}
             label={t("common.facebook")}
-            value={site.contact.facebook}
-            href={site.contact.facebook}
+            value={site.contact.facebook.name}
+            href={site.contact.facebook.href}
             actionLabel={t("common.visitPage")}
             actionIcon={<LiaFacebook size={18} />}
           />
