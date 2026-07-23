@@ -10,20 +10,45 @@ import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
 import { Input } from "@/components/ui/input";
 import { Pagination } from "@/components/ui/pagination";
-import { Product } from "@/data/products";
+import { localizeProduct, Product } from "@/data/products";
 import { site } from "@/data/site";
 import { buildProductPriceInquiryWhatsAppLink } from "@/lib/utils/product-inquiry";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ProductListPageProps {
   products: Product[];
-  categories: { id: string; name: string }[];
+  categories: { id: string; name: { en: string; bn: string } }[];
 }
 
 const sortOptions = [
-  { value: "featured", label: "Featured" },
-  { value: "price-asc", label: "Price: low to high" },
-  { value: "price-desc", label: "Price: high to low" },
-  { value: "name-asc", label: "Name: A–Z" },
+  {
+    value: "featured",
+    label: {
+      en: "Featured",
+      bn: "বিশেষ পছন্দ",
+    },
+  },
+  {
+    value: "price-asc",
+    label: {
+      en: "Price: low to high",
+      bn: "দাম: কম থেকে বেশি",
+    },
+  },
+  {
+    value: "price-desc",
+    label: {
+      en: "Price: high to low",
+      bn: "দাম: বেশি থেকে কম",
+    },
+  },
+  {
+    value: "name-asc",
+    label: {
+      en: "Name: A–Z",
+      bn: "নাম: এ থেকে জেড",
+    },
+  },
 ];
 
 const PRODUCTS_PER_PAGE = 6;
@@ -32,6 +57,8 @@ export function ProductListPage({
   products,
   categories,
 }: ProductListPageProps) {
+  const t = useTranslations();
+  const locale = useLocale() as "en" | "bn";
   const [search, setSearch] = React.useState("");
   const [category, setCategory] = React.useState("all");
   const [sort, setSort] = React.useState("featured");
@@ -72,7 +99,7 @@ export function ProductListPage({
   }, [search, category, sort]);
 
   const formatPrice = (value: number) =>
-    `৳ ${new Intl.NumberFormat("en-US", {
+    `৳ ${new Intl.NumberFormat(locale === "en" ? "en-US" : "bn-BD", {
       maximumFractionDigits: 0,
     }).format(value)}`;
 
@@ -82,13 +109,13 @@ export function ProductListPage({
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-              Nursery collection
+              {t("home.allProducts.eyebrow")}
             </p>
-            <Heading as="h1">
-              Discover furniture made for calm, comfortable nurseries.
+            <Heading as="h1" className="mt-2">
+              {t("home.allProducts.heading")}
             </Heading>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--color-text-muted)]">
-              {site.productsIntro}
+              {t("home.allProducts.subtitle")}
             </p>
           </div>
         </div>
@@ -98,7 +125,7 @@ export function ProductListPage({
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder={site.searchPlaceholder}
+              placeholder={t("common.searchPlaceholder")}
               aria-label="Search the collection"
             />
             <select
@@ -108,7 +135,7 @@ export function ProductListPage({
             >
               {categories.map((item) => (
                 <option key={item.id} value={item.id}>
-                  {item.name}
+                  {item.name[locale]}
                 </option>
               ))}
             </select>
@@ -121,14 +148,16 @@ export function ProductListPage({
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
-                  {option.label}
+                  {option.label[locale]}
                 </option>
               ))}
             </select>
             <div className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">
-              <p className="text-sm text-[var(--color-text-muted)]">Showing</p>
+              <p className="text-sm text-[var(--color-text-muted)]">
+                {t("common.showing")}
+              </p>
               <p className="text-lg font-semibold text-[var(--color-text)]">
-                {filteredProducts.length} items
+                {filteredProducts.length} {t("common.items")}
               </p>
             </div>
           </div>
@@ -146,54 +175,56 @@ export function ProductListPage({
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {visibleProducts.map((product) => (
-            <Card key={product.slug} className="overflow-hidden">
-              <div className="relative h-72 overflow-hidden rounded-2xl">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover transition duration-300 hover:scale-105"
-                />
-              </div>
-
-              <div className="space-y-4 pt-6">
-                <div className="flex flex-wrap items-center gap-2">
-                  {product.badge ? (
-                    <Badge variant="accent">{product.badge}</Badge>
-                  ) : null}
-                  <span className="text-sm text-[var(--color-text-muted)]">
-                    {product.categoryLabel}
-                  </span>
+          {visibleProducts.map((product) => {
+            product = localizeProduct(product, locale);
+            return (
+              <Card key={product.slug} className="overflow-hidden">
+                <div className="relative h-72 overflow-hidden rounded-2xl">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transition duration-300 hover:scale-105"
+                  />
                 </div>
 
-                <div>
-                  <h2 className="text-xl font-semibold text-[var(--color-text)]">
-                    <Link href={`/products/${product.slug}`}>
-                      <span className="transition-colors hover:text-[var(--color-primary-700)]">
-                        {product.name}
-                      </span>
-                    </Link>
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-                    {product.shortDescription}
-                  </p>
-                </div>
+                <div className="space-y-4 pt-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {product.badge ? (
+                      <Badge variant="accent">{product.badge}</Badge>
+                    ) : null}
+                    <span className="text-sm text-[var(--color-text-muted)]">
+                      {product.categoryLabel}
+                    </span>
+                  </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <span
-                    className="cursor-pointer text-sm font-semibold text-[var(--color-primary-700)] transition-colors hover:text-[var(--color-primary-800)] hover:underline"
-                    onClick={() => {
-                      window.open(
-                        buildProductPriceInquiryWhatsAppLink(product),
-                        "_blank",
-                        "noopener,noreferrer",
-                      );
-                    }}
-                  >
-                    Ask for price
-                  </span>
-                  {/* <div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-[var(--color-text)]">
+                      <Link href={`/products/${product.slug}`}>
+                        <span className="transition-colors hover:text-[var(--color-primary-700)]">
+                          {product.name}
+                        </span>
+                      </Link>
+                    </h2>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
+                      {product.shortDescription}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <span
+                      className="cursor-pointer text-sm font-semibold text-[var(--color-primary-700)] transition-colors hover:text-[var(--color-primary-800)] hover:underline"
+                      onClick={() => {
+                        window.open(
+                          buildProductPriceInquiryWhatsAppLink(product),
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
+                      }}
+                    >
+                      {t("common.askPrice")}
+                    </span>
+                    {/* <div>
                     {product.salePrice ? (
                       <div className="flex items-baseline gap-2">
                         <p className="text-lg font-semibold text-[var(--color-text)]">
@@ -209,25 +240,27 @@ export function ProductListPage({
                       </p>
                     )}
                   </div> */}
-                  <Badge
-                    variant={
-                      product.availability === "In stock"
-                        ? "success"
-                        : "warning"
-                    }
-                  >
-                    {product.availability}
-                  </Badge>
-                </div>
+                    <Badge
+                      variant={
+                        product.availability === "In stock" ||
+                        product.availability === "স্টকে আছে"
+                          ? "success"
+                          : "warning"
+                      }
+                    >
+                      {product.availability}
+                    </Badge>
+                  </div>
 
-                <Link href={`/products/${product.slug}`}>
-                  <Button variant="secondary" size="sm" className="w-full">
-                    View details
-                  </Button>
-                </Link>
-              </div>
-            </Card>
-          ))}
+                  <Link href={`/products/${product.slug}`}>
+                    <Button variant="secondary" size="sm" className="w-full">
+                      {t("common.viewDetails")}
+                    </Button>
+                  </Link>
+                </div>
+              </Card>
+            );
+          })}
         </div>
       )}
 

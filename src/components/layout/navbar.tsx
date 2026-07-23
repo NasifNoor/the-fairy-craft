@@ -13,22 +13,16 @@ import { LanguageSwitch } from "./language-switch";
 
 export function Navbar() {
   const t = useTranslations();
-  const navItems = [
-    "home",
-    "collections",
-    "customDesign",
-    "gallery",
-    "products",
-    "about",
-    "contact",
-  ].map((key) => ({
-    label: t(`nav.${key}`),
-    href:
-      site.nav.find(
-        (item) =>
-          item.label.toLowerCase().replace(" ", "") === key.toLowerCase(),
-      )?.href ?? "/",
-  }));
+  const navItems = ["home", "customDesign", "products", "about", "contact"].map(
+    (key) => ({
+      label: t(`nav.${key}`),
+      href:
+        site.nav.find(
+          (item) =>
+            item.label.toLowerCase().replace(" ", "") === key.toLowerCase(),
+        )?.href ?? "/",
+    }),
+  );
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">

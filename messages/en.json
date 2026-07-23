@@ -83,7 +83,10 @@
     "pageNotFound": "Page Not Found",
     "pageMissing": "This page does not exist.",
     "backHome": "Back to Home",
-    "pagination": "Pagination"
+    "pagination": "Pagination",
+    "searchPlaceholder": "Search sofas, lounge chairs, shelves...",
+    "shippingPeriod": "Available to ship within 5-7 business days.",
+    "customerReview": "Customer reviews"
   },
   "footer": {
     "description": "The Fairy Craft creates premium handcrafted cane furniture for homes, cafés, resorts, and commercial spaces—made with enduring materials, skilled hands, and thoughtful detail.",
@@ -158,6 +161,11 @@
         "description": "Bespoke cane pieces built from your inspiration, dimensions, and finish preferences."
       }
     ],
+    "allProducts": {
+      "eyebrow": "Our Collection",
+      "heading": "Handcrafted Cane Furniture for Every Space",
+      "subtitle": "Explore our collection of handcrafted cane and bamboo furniture, thoughtfully designed to bring natural beauty, comfort, and timeless craftsmanship to homes, cafes, resorts, and commercial spaces."
+    },
     "newProducts": {
       "eyebrow": "New Collection",
       "heading": "Newly launched pieces for naturally refined living.",
@@ -223,7 +231,7 @@
     "galleryEyebrow": "Crafted Spaces",
     "galleryHeading": "See how our handcrafted cane furniture transforms homes, cafés, restaurants, resorts, offices, and outdoor living spaces.",
     "gallery": [
-      { "title": "Natural Living Room", "image": "/images/gallery1.jfif" },
+      { "title": "Natural Living Room", "image": "/images/gallery1.jpg" },
       { "title": "Relaxed Cafe Corner", "image": "/images/gallery2.png" },
       { "title": "Artisan Dining Space", "image": "/images/gallery3.webp" }
     ],
